@@ -1,0 +1,19 @@
+{
+  "CN": "prototype.test.client.internal",
+  "hosts": [
+    ""
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "Client",
+      "O": "Prototype",
+      "OU": "Prototype Client",
+      "ST": "Maryland"
+    }
+  ]
+}

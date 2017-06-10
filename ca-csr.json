@@ -1,0 +1,17 @@
+{
+  "CN": "Prototype Test Certificate Authority",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "Columbia",
+      "O": "Prototype",
+      "OU": "Test Certificate Authority",
+      "ST": "Maryland"
+    }
+  ]
+}
+
