@@ -3,15 +3,15 @@ Sample Cloudflare SSL (CFSSL) Certificate Authority
 
 This repository contains configuration files and command-line examples
 for generating a Certificate Authority and Certificates using Cloudflare's
-PKI and TLS toolkit, otherwise know as CFSSL, available at 
+PKI and TLS toolkit, otherwise know as CFSSL, available at
 [https://github.com/cloudflare/cfssl](https://github.com/cloudflare/cfssl)
 
-DISCLAIMER: 
-1. **Use at your own risk** 
+DISCLAIMER:
+1. **Use at your own risk**
 2. **Do not use this for production systems**
 
 I created this repository for personal use and for sharing with folks that
-need to generate Certificate Authorities and Certificates for 
+need to generate Certificate Authorities and Certificates for
 **testing purposes only**. Much of this is scattered across the web
 and I got tired of Googling all the time and needed to automate portions
 of this for certain processes.  
@@ -66,7 +66,7 @@ The output is something like:
 2017/06/09 18:48:31 [INFO] signed certificate with serial number 615205400119918557792655758449511430876160885834
 ```
 
-### Creating the Client Keypair 
+### Creating the Client Keypair
 
 Create prototype-client-csr.json:
 
@@ -109,11 +109,11 @@ Creating the jks from the p12:
 ```
 keytool -importkeystore -srckeystore prototype-client.p12 \
   -storetype pkcs12 -destkeystore prototype-client.jks \
-  -deststoretype jks 
+  -deststoretype jks
 
 keytool -importkeystore -srckeystore prototype-server.p12 \
   -storetype pkcs12 -destkeystore prototype-server.jks \
-  -deststoretype jks 
+  -deststoretype jks
 ```
 
 #### Creating a truststore
@@ -126,7 +126,7 @@ keytool -import -file ca.pem -alias 'PrototypeCA' -keystore truststore.jks
 
 This will generate an encrypted pkcs8 keystore, use `-nocrypt` if you don't want that.
 ```
-openssl pkcs8 -topk8 -inform PEM -outform DER -in prototype-server-key.pem -out prototype-server-key.p8
+openssl pkcs8 -topk8 -in prototype-server-key.pem -out prototype-server-key.p8
 ```
 
 ### Encrypting Private Keys
@@ -151,4 +151,3 @@ but you can generate the public version of this key using:
 ```
 ssh-keygen -f prototype-client-key.pem -y > prototype-client.pub
 ```
-
