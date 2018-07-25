@@ -7,7 +7,7 @@ set -x
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export NAME=myname
+export NAME=prototype
 export ORG=myorg
 
 export PW="changeit"
