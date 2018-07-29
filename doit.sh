@@ -102,13 +102,14 @@ keytool -import \
 yes
 EOF
 
-keytool -import \
-  -alias "${NAME}-client" \
-  -file  ${NAME}-client.pem \
-  -keystore ${NAME}-client-truststore.jks \
-  -storepass:env PW << EOF
-yes
-EOF
+# Import CA certs
+keytool -importkeystore \
+  -srckeystore $JAVA_HOME/jre/lib/security/cacerts \
+  -srcstorepass changeit \
+  -srcstoretype jks \
+  -destkeystore ${NAME}-client-truststore.jks \
+  -deststoretype jks \
+  -storepass:env PW
 
 keytool -importkeystore \
   -srckeystore ${NAME}-client-truststore.jks \
