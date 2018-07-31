@@ -47,6 +47,8 @@ openssl pkcs12 -export \
   -inkey ${NAME}-server-key.pem \
   -name "$NAME-server" \
   -in ${NAME}-server.pem \
+  -chain \
+  -CAfile $ORG-ca.pem \
   -out ${NAME}-server-keystore.p12
 
 keytool -importkeystore \
