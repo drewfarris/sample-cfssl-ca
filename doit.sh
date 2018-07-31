@@ -84,6 +84,8 @@ openssl pkcs12 -export \
   -inkey ${NAME}-client-key.pem \
   -name "$NAME-client" \
   -in ${NAME}-client.pem \
+  -chain \
+  -CAfile $ORG-ca.pem \
   -out ${NAME}-client-keystore.p12 
 
 keytool -importkeystore \
